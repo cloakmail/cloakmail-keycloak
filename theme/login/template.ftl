@@ -5,9 +5,13 @@
 
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="robots" content="noindex, nofollow">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
       <#if properties.meta?has_content>
           <#list properties.meta?split(' ') as meta>
             <meta name="${meta?split('==')[0]}" content="${meta?split('==')[1]}"/>
@@ -37,14 +41,15 @@
       </#if>
   </head>
 
-  <body class="${properties.kcBodyClass!}">
+  <body class="${properties.kcBodyClass!}" style="background-color: lightslategray; min-height: 100vh">
   <div class="${properties.kcLoginClass!}">
-    <div id="kc-header" class="${properties.kcHeaderClass!}">
-      <div id="kc-header-wrapper"
-           class="${properties.kcHeaderWrapperClass!}">${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</div>
-    </div>
-    <div class="${properties.kcFormCardClass!}">
-      <header class="${properties.kcFormHeaderClass!}">
+
+    <div class="h-25 d-none d-sm-block"><#--spacer--></div>
+    <div class="mt-4 p-4 col-md-6 col-lg-4 ml-auto mr-auto ${properties.kcFormCardClass!}">
+      <header class="mb-3 ${properties.kcFormHeaderClass!}">
+        <div class="text-center mb-4">
+          <span class="font-weight-bold h4">${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</span>
+        </div>
           <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
             <div id="kc-locale">
               <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
@@ -66,11 +71,11 @@
                     <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
                   </div>
                   <div class="col-md-10">
-                    <h1 id="kc-page-title"><#nested "header"></h1>
+                    <h5 id="kc-page-title"><#nested "header"></h5>
                   </div>
                 </div>
               <#else>
-                <h1 id="kc-page-title"><#nested "header"></h1>
+                <h5 id="kc-page-title"><#nested "header"></h5>
               </#if>
           <#else>
               <#if displayRequiredFields>
@@ -146,6 +151,15 @@
 
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+          integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+          integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+          crossorigin="anonymous"></script>
   </body>
   </html>
 </#macro>
