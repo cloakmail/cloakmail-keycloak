@@ -3,7 +3,8 @@
     <#if section = "header">
         ${msg("emailForgotTitle")}
     <#elseif section = "form">
-      <form id="kc-reset-password-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post" novalidate>
+      <form id="kc-reset-password-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post"
+            novalidate>
         <span class="small">${msg("emailInstruction")}</span>
         <div class="mt-3 ${properties.kcFormGroupClass!}">
             <#--                <div class="${properties.kcLabelWrapperClass!}">-->
@@ -16,13 +17,16 @@
                        aria-invalid="<#if messagesPerField.existsError('username')>true</#if>"/>
               <#else>
                 <input required type="text" placeholder="${msg("email")}" id="username" name="username"
-                       class="<#if messagesPerField.existsError('username')>is-invalid </#if>${properties.kcInputClass!}" autofocus
+                       class="<#if messagesPerField.existsError('username')>is-invalid </#if>${properties.kcInputClass!}"
+                       autofocus
                        aria-invalid="<#if messagesPerField.existsError('username')>true</#if>"/>
               </#if>
 
               <#if messagesPerField.existsError('username')>
-                <div id="input-error-username" class="<#if messagesPerField.existsError('username')>is-invalid </#if>${properties.kcInputErrorMessageClass!}"
-                      aria-live="polite">Please specify an email.</div>
+                <div id="input-error-username"
+                     class="<#if messagesPerField.existsError('username')>is-invalid </#if>${properties.kcInputErrorMessageClass!}"
+                     aria-live="polite">Please specify an email.
+                </div>
               </#if>
           </div>
         </div>

@@ -4,12 +4,12 @@ ${msg("loginTotpIntro")}
 ${msg("loginTotpStep1")}
 
 <#list totp.policy.supportedApplications as app>
-* ${app}
+  * ${app}
 </#list>
 
 ${msg("loginTotpManualStep2")}
 
-    ${totp.totpSecretEncoded}
+${totp.totpSecretEncoded}
 
 
 ${msg("loginTotpManualStep3")}
@@ -18,10 +18,10 @@ ${msg("loginTotpManualStep3")}
 - ${msg("loginTotpAlgorithm")}: ${totp.policy.getAlgorithmKey()}
 - ${msg("loginTotpDigits")}: ${totp.policy.digits}
 <#if totp.policy.type = "totp">
-- ${msg("loginTotpInterval")}: ${totp.policy.period}
+  - ${msg("loginTotpInterval")}: ${totp.policy.period}
 
 <#elseif totp.policy.type = "hotp">
-- ${msg("loginTotpCounter")}: ${totp.policy.initialCounter}
+  - ${msg("loginTotpCounter")}: ${totp.policy.initialCounter}
 
 </#if>
 
