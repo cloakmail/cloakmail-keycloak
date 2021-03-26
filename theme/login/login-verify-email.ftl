@@ -5,9 +5,8 @@
     <#elseif section = "form">
       <p class="instruction">${msg("emailVerifyInstruction1")}</p>
     <#elseif section = "info">
-      <p class="instruction">
+      <p class="mt-3 small instruction">
           ${msg("emailVerifyInstruction2")}
-        <br/>
         <a href="${url.loginAction}">${msg("doClickHere")}</a> ${msg("emailVerifyInstruction3")}
       </p>
     </#if>

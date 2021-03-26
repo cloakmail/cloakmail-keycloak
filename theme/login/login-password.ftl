@@ -9,7 +9,7 @@
                 method="post">
             <div class="${properties.kcFormGroupClass!} no-bottom-margin">
               <hr/>
-              <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
+              <label for="password" class="<#if messagesPerField.existsError('password')>is-invalid </#if>${properties.kcLabelClass!}">${msg("password")}</label>
               <input tabindex="2" id="password" class="${properties.kcInputClass!}" name="password"
                      type="password" autocomplete="on"
                      aria-invalid="<#if messagesPerField.existsError('password')>true</#if>"

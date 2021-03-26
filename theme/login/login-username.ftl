@@ -15,7 +15,7 @@ ${msg("loginAccountTitle")}
               <#if usernameEditDisabled??>
                 <input tabindex="1" id="username"
                        aria-invalid="<#if message?has_content && message.type = 'error'>true</#if>"
-                       class="${properties.kcInputClass!}" name="username"
+                       class="<#if messagesPerField.existsError('username')>is-invalid </#if>${properties.kcInputClass!}" name="username"
                        value="${(login.username!'')}"
                        type="text" disabled/>
               <#else>

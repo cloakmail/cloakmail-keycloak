@@ -56,7 +56,7 @@
             <label for="totp" class="control-label">${msg("authenticatorCode")}</label> <span class="required">*</span>
           </div>
           <div class="${properties.kcInputWrapperClass!}">
-            <input type="text" id="totp" name="totp" autocomplete="off" class="${properties.kcInputClass!}"
+            <input type="text" id="totp" name="totp" autocomplete="off" class="<#if messagesPerField.existsError('totp')>is-invalid </#if>${properties.kcInputClass!}"
                    aria-invalid="<#if messagesPerField.existsError('totp')>true</#if>"
             />
 
@@ -79,7 +79,7 @@
           </div>
 
           <div class="${properties.kcInputWrapperClass!}">
-            <input type="text" class="${properties.kcInputClass!}" id="userLabel" name="userLabel" autocomplete="off"
+            <input type="text" class="<#if messagesPerField.existsError('userLabel')>is-invalid </#if>${properties.kcInputClass!}" id="userLabel" name="userLabel" autocomplete="off"
                    aria-invalid="<#if messagesPerField.existsError('userLabel')>true</#if>"
             />
 

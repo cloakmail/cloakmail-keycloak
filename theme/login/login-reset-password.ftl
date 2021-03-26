@@ -38,9 +38,10 @@
           </div>
 
         </div>
-        <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
+
+        <div id="kc-form-options" class="small text-center ${properties.kcFormOptionsClass!}">
           <div class="${properties.kcFormOptionsWrapperClass!}">
-            <span><a href="${url.loginUrl}">${kcSanitize(msg("backToLogin"))?no_esc}</a></span>
+            <span>Do you remember after all? <a href="${url.loginUrl}">Log in</a> instead.</span>
           </div>
         </div>
       </form>

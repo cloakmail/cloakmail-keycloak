@@ -13,7 +13,7 @@
             <label for="password-new" class="${properties.kcLabelClass!}">${msg("passwordNew")}</label>
           </div>
           <div class="${properties.kcInputWrapperClass!}">
-            <input type="password" id="password-new" name="password-new" class="${properties.kcInputClass!}"
+            <input type="password" id="password-new" name="password-new" class="<#if messagesPerField.existsError('password')>is-invalid </#if>${properties.kcInputClass!}"
                    autofocus autocomplete="new-password"
                    aria-invalid="<#if messagesPerField.existsError('password','password-confirm')>true</#if>"
             />
@@ -32,7 +32,7 @@
           </div>
           <div class="${properties.kcInputWrapperClass!}">
             <input type="password" id="password-confirm" name="password-confirm"
-                   class="${properties.kcInputClass!}"
+                   class="<#if messagesPerField.existsError('password-confirm')>is-invalid </#if>${properties.kcInputClass!}"
                    autocomplete="new-password"
                    aria-invalid="<#if messagesPerField.existsError('password-confirm')>true</#if>"
             />
@@ -59,15 +59,15 @@
             </div>
           </div>
 
-          <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
+          <div id="form-row kc-form-buttons" class="${properties.kcFormButtonsClass!}">
               <#if isAppInitiatedAction??>
-                <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}"
+                <input class="col-12 ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}"
                        type="submit" value="${msg("doSubmit")}"/>
                 <button
                 class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonLargeClass!}"
                 type="submit" name="cancel-aia" value="true" />${msg("doCancel")}</button>
               <#else>
-                <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}"
+                <input class="col-12 ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}"
                        type="submit" value="${msg("doSubmit")}"/>
               </#if>
           </div>

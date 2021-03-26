@@ -133,7 +133,7 @@
             </div>
           </#if>
 
-        <div class="${properties.kcFormGroupClass!}">
+        <div class="pt-3 ${properties.kcFormGroupClass!}">
 
           <div id="kc-form-buttons" class="form-row px-1 ${properties.kcFormButtonsClass!}">
             <input class="col-sm-12 ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}"
@@ -142,11 +142,33 @@
 
         </div>
 
-        <div id="kc-form-options" class="mt-4${properties.kcFormOptionsClass!}">
+        <div id="kc-form-options" class="small text-center ${properties.kcFormOptionsClass!}">
           <div class="${properties.kcFormOptionsWrapperClass!}">
-            <span><a href="${url.loginUrl}">${kcSanitize(msg("backToLogin"))?no_esc}</a></span>
+            <span>Already have an account? <a href="${url.loginUrl}">Log in</a> instead.</span>
           </div>
         </div>
+
+          <#if realm.password && social.providers??>
+            <div id="kc-social-providers" class="text-center ${properties.kcFormSocialAccountSectionClass!}">
+              <hr/>
+              <h5>${msg("identity-provider-login-label")}</h5>
+
+              <ul class="d-flex flex-column p-0 ${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountListGridClass!}</#if>">
+                  <#list social.providers as p>
+                    <a id="social-${p.alias}"
+                       class="btn-secondary my-1 ${properties.kcFormSocialAccountListButtonClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountGridItem!}</#if>"
+                       href="${p.loginUrl}">
+                        <#if p.iconClasses?has_content>
+                          <i class="mr-2 ${properties.kcCommonLogoIdP!} ${p.iconClasses!}" aria-hidden="true"></i>
+                          <span class="${properties.kcFormSocialAccountNameClass!} kc-social-icon-text">Sign up with ${p.displayName!}</span>
+                        <#else>
+                          <span class="${properties.kcFormSocialAccountNameClass!}">Sign up with ${p.displayName!}</span>
+                        </#if>
+                    </a>
+                  </#list>
+              </ul>
+            </div>
+          </#if>
       </form>
     </#if>
 </@layout.registrationLayout>

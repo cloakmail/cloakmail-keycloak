@@ -116,7 +116,7 @@
             <#-- App-initiated actions should not see warning messages about the need to complete the action -->
             <#-- during login.                                                                               -->
             <#if displayMessage && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
-              <div class="alert-${message.type} ${properties.kcAlertClass!} pf-m-<#if message.type = 'error'>danger<#else>${message.type}</#if>">
+              <div class="alert alert-${message.type} ${properties.kcAlertClass!} pf-m-<#if message.type = 'error'>danger<#else>${message.type}</#if>">
                 <div class="pf-c-alert__icon">
                     <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
                     <#if message.type = 'warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
@@ -149,6 +149,9 @@
         </div>
       </div>
 
+      <span class="pt-3 text-center small text-secondary">
+      © ${.now?string('yyyy')} cloakmail.org
+      </span>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
