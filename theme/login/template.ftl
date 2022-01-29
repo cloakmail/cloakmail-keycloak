@@ -9,8 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="robots" content="noindex, nofollow">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="${url.resourcesPath}/css/style.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
       <#if properties.meta?has_content>
           <#list properties.meta?split(' ') as meta>
@@ -41,7 +40,7 @@
       </#if>
   </head>
 
-  <body class="${properties.kcBodyClass!}" style="background-color: lightslategray; min-height: 100vh">
+  <body class="${properties.kcBodyClass!}" style="min-height: 100vh">
   <div class="${properties.kcLoginClass!}">
 
     <div class="h-25 d-none d-sm-block"><#--spacer--></div>

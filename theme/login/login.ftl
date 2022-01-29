@@ -92,7 +92,7 @@
               <ul class="d-flex flex-column p-0 ${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountListGridClass!}</#if>">
                   <#list social.providers as p>
                     <a id="social-${p.alias}"
-                       class="btn-secondary my-1 ${properties.kcFormSocialAccountListButtonClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountGridItem!}</#if>"
+                       class="btn my-1 ${properties.kcFormSocialAccountListButtonClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountGridItem!}</#if>"
                        href="${p.loginUrl}">
                         <#if p.iconClasses?has_content>
                           <i class="mr-2 ${properties.kcCommonLogoIdP!} ${p.iconClasses!}" aria-hidden="true"></i>
