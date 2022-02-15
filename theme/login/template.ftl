@@ -45,7 +45,6 @@
   <body class="${properties.kcBodyClass!}" style="min-height: 100vh">
   <div class="${properties.kcLoginClass!}">
 
-    <div class="h-25 d-none d-sm-block"><#--spacer--></div>
     <div class="mt-4 p-4 col-md-6 col-lg-4 ml-auto mr-auto ${properties.kcFormCardClass!}">
       <header class="mb-3 ${properties.kcFormHeaderClass!}">
         <div class="text-center mb-4">
