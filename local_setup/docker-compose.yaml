@@ -9,8 +9,8 @@ services:
     restart: always
     command: start-dev
     environment:
-      KEYCLOAK_USER: admin
-      KEYCLOAK_PASSWORD: admin
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
       KC_HTTP_RELATIVE_PATH: /auth
       KC_DB: postgres
       KC_DB_URL: jdbc:postgresql://db:5432/postgres
