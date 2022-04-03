@@ -2,14 +2,28 @@ version: '3'
 
 services:
   keycloak:
-    image: jboss/keycloak:12.0.4
+    image: quay.io/keycloak/keycloak:17.0.1
     container_name: keycloak
     ports:
       - 8081:8080
     restart: always
+    command: start-dev
     environment:
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: admin
+      KC_HTTP_RELATIVE_PATH: /auth
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://db:5432/postgres
+      KC_DB_USERNAME: postgres
+      KC_DB_PASSWORD: postgres
     volumes:
-      - ../theme:/opt/jboss/keycloak/themes/cloakmail
+      - ../theme:/opt/keycloak/themes/cloakmail
       - ./disable-theme-cache.cli:/opt/jboss/startup-scripts/disable-theme-cache.cli
+  db:
+    image: postgres:13.1-alpine
+    container_name: db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
